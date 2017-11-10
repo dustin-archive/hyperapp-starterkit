@@ -1,0 +1,23 @@
+{
+  "name": "@whaaaley/hyperapp-starterkit",
+  "version": "0.0.0",
+  "description": "Reusable app logic to kickstart developing",
+  "author": "Dustin Dowell <dustindowell22@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "rollup index.js -o bundle.js -f cjs && node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whaaaley/hyperapp-starterkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whaaaley/hyperapp-starterkit/issues"
+  },
+  "homepage": "https://github.com/whaaaley/hyperapp-starterkit#readme",
+  "devDependencies": {
+    "rollup": "^0.50.0",
+    "tape": "^4.8.0"
+  }
+}
