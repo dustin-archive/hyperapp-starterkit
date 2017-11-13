@@ -1,7 +1,5 @@
 var Overlay = {
-  state: {
-    overlay: null
-  },
+  state: {},
   actions: {
     init: function (s, actions) {
       var reset = actions.reset

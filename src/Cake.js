@@ -1,4 +1,5 @@
 var Cake = {
+  state: {},
   actions: {
     add: function (state) {
       return function (data) {
