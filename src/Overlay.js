@@ -14,7 +14,7 @@ var Overlay = {
         overlay: null
       }
     },
-    toggle: function (state, a) {
+    toggle: function (state) {
       return function (data) {
         return {
           overlay: state.overlay === data ? null : data
