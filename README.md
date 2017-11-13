@@ -12,6 +12,8 @@ npm i @whaaaley/hyperapp-starterkit
 
 ### Cake
 
+Store any slice on demand.
+
 ```js
 import { h, app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
@@ -37,6 +39,8 @@ app({
 
 ### Overlay
 
+Manage state of all overlay elements.
+
 ```js
 import { app } from 'hyperapp'
 import { Overlay } from 'hyperapp-starterkit'
@@ -54,6 +58,8 @@ hyperapp.Overlay.init()
 ```
 
 ### Router
+
+Minimalistic hash router logic.
 
 ```js
 import { app } from 'hyperapp'
