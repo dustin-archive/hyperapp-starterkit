@@ -15,7 +15,7 @@ npm i @whaaaley/hyperapp-starterkit
 Store any slice on demand.
 
 ```js
-import { h, app } from 'hyperapp'
+import { app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
 
 app({
@@ -24,17 +24,22 @@ app({
   },
   actions: {
     Cake: Cake.actions
-  },
-  view: function (state, actions) {
-    return h('button', {
-      onclick: function () {
-        actions.Cake.add({
-          foo: 'bar'
-        })
-      }
-    }, state.Cake.foo)
   }
 })
+```
+
+Store a slice.
+
+```js
+actions.Cake.add({ foo: 'bar' })
+// => { state: { Cake: { foo: 'bar' } } }
+```
+
+Grab a slice.
+
+```js
+state.Cake.foo
+// => 'bar'
 ```
 
 ### Overlay
