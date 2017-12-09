@@ -1,22 +1,17 @@
+
 var Overlay = {
   state: {},
   actions: {
-    init: function (s, actions) {
-      var reset = actions.reset
-      window.addEventListener('click', function (e) {
-        !e.target.classList.contains('_overlay') && reset()
-      })
-    },
-    reset: function () {
-      return {
-        overlay: null
+    init: function (data) {
+      return function (state) {
+        if (!data.target.classList.contains('_overlay') && state.overlay != null) {
+          return { overlay: null }
+        }
       }
     },
-    toggle: function (state) {
-      return function (data) {
-        return {
-          overlay: state.overlay === data ? null : data
-        }
+    toggle: function (data) {
+      return function (state) {
+        return { overlay: state.overlay === data ? null : data }
       }
     }
   }

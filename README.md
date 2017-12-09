@@ -59,12 +59,30 @@ const hyperapp = app({
   }
 })
 
-hyperapp.Overlay.init()
+window.addEventListener('click', e => {
+  hyperapp.Overlay.blur(e)
+})
+```
+
+Add the `_overlay` class to overlay toggles to allow swapping overlays without having to blur (off click) beween swapping.
+
+Use `stopPropagation` to do the thing.
+
+Use the `toggle` action with the name of the overlay to toggle it's visibility.
+
+```js
+h('div', {
+  class: '_overlay'
+  onclick (e) {
+    e.stopPropagation()
+    data.toggle(data.name)
+  }
+}, 'Menu')
 ```
 
 ### Router
 
-Minimalistic hash router logic.
+Minimal hash router.
 
 ```js
 import { app } from 'hyperapp'
@@ -80,4 +98,19 @@ const hyperapp = app({
 })
 
 hyperapp.Router.init()
+
+window.addEventListener('hashchange', e => {
+  hyperapp.Router.init()
+})
+```
+
+Use a router view function using the current path to change the view.
+
+```js
+const RouterView = data => ({
+  '': Home,
+  '/about': About,
+  '/contact': Contact,
+  '/dashboard': Dashboard
+})[data.path] || NotFound
 ```
