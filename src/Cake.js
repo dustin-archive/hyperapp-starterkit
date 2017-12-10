@@ -1,11 +1,8 @@
 
 var Cake = {
-  state: {},
-  actions: {
-    add: function (data) {
-      return function (state) {
-        return data
-      }
+  add: function (data) {
+    return function (state) {
+      return data
     }
   }
 }
