@@ -85,7 +85,7 @@ h('div', {
   class: '_overlay'
   onclick (e) {
     e.stopPropagation()
-    actions.Overlay.toggle(data.name)
+    actions.Overlay.toggle('menu')
   }
 }, 'Menu')
 ```
