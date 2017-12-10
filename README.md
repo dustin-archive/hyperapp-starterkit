@@ -14,6 +14,8 @@ npm i @whaaaley/hyperapp-starterkit
 
 Store any slice on demand.
 
+**Cake Installation**
+
 ```js
 import { app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
@@ -24,9 +26,12 @@ app({
   },
   actions: {
     Cake: Cake.actions
-  }
+  },
+  // ...
 })
 ```
+
+**Cake Usage**
 
 Store a slice.
 
@@ -46,6 +51,8 @@ state.Cake.foo
 
 Manage state of all overlay elements.
 
+**Overlay Installation**
+
 ```js
 import { app } from 'hyperapp'
 import { Overlay } from 'hyperapp-starterkit'
@@ -56,7 +63,8 @@ const hyperapp = app({
   },
   actions: {
     Overlay: Overlay.actions
-  }
+  },
+  // ...
 })
 
 window.addEventListener('click', e => {
@@ -64,18 +72,20 @@ window.addEventListener('click', e => {
 })
 ```
 
-Add the `_overlay` class to overlay toggles to allow swapping overlays without having to blur (off click) beween swapping.
+**Overlay Usage**
 
-Use `stopPropagation` to do the thing.
+Add an `_overlay` class to all overlay toggles. Without this class switching between overlays will force the user to blur (off click) between switching.
 
-Use the `toggle` action with the name of the overlay to toggle it's visibility.
+[Use `stopPropagation` to do the thing.](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
+
+Use the `toggle` action with a unique id, such as the overlay's name, to toggle it's visibility.
 
 ```js
 h('div', {
   class: '_overlay'
   onclick (e) {
     e.stopPropagation()
-    data.toggle(data.name)
+    actions.Overlay.toggle(data.name)
   }
 }, 'Menu')
 ```
@@ -83,6 +93,8 @@ h('div', {
 ### Router
 
 Minimal hash router.
+
+**Router Installation**
 
 ```js
 import { app } from 'hyperapp'
@@ -94,7 +106,8 @@ const hyperapp = app({
   },
   actions: {
     Router: Router.actions
-  }
+  },
+  // ...
 })
 
 hyperapp.Router.init()
@@ -104,13 +117,26 @@ window.addEventListener('hashchange', e => {
 })
 ```
 
-Use a router view function using the current path to change the view.
+**Router Usage**
+
+Use a router view function and the current path to change the view.
 
 ```js
-const RouterView = data => ({
+const RouterView = path => ({
   '': Home,
   '/about': About,
   '/contact': Contact,
-  '/dashboard': Dashboard
-})[data.path] || NotFound
+  // ...
+})[path] || NotFound
+
+app({
+  // ...
+  view: () => state => RouterView(state.Router.path)
+})
 ```
+
+### Compatibility
+| starterkit     | hyperapp       |
+| :------------- | :------------- |
+| 0.2.0          | 0.16.2         |
+| 0.1.0          | 0.16.0         |
