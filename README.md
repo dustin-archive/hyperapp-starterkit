@@ -22,10 +22,10 @@ import { Cake } from 'hyperapp-starterkit'
 
 app({
   state: {
-    Cake: Cake.state
+    Cake: {}
   },
   actions: {
-    Cake: Cake.actions
+    Cake
   },
   // ...
 })
@@ -59,10 +59,10 @@ import { Overlay } from 'hyperapp-starterkit'
 
 const hyperapp = app({
   state: {
-    Overlay: Overlay.state
+    Overlay: {}
   },
   actions: {
-    Overlay: Overlay.actions
+    Overlay
   },
   // ...
 })
@@ -102,10 +102,10 @@ import { Router } from 'hyperapp-starterkit'
 
 const hyperapp = app({
   state: {
-    Router: Router.state
+    Router: {}
   },
   actions: {
-    Router: Router.actions
+    Router
   },
   // ...
 })
@@ -133,6 +133,36 @@ app({
   // ...
   view: () => state => RouterView(state.Router.path)
 })
+```
+
+You can programmatically set path and encode query strings using the `route` action.
+
+Path and queries can also be updated externally.
+
+```js
+actions.Router.route({
+  path: '/about',
+  query: {
+    fuzzy: 'wuzzy',
+    was: 'a',
+    bear: 'fuzzy',
+    wuzzy: 'had',
+    no: 'hair'
+  }
+})
+// => http://localhost:3000/#/about?fuzzy=wuzzy&was=a&bear=fuzzy&wuzzy=had&no=hair
+```
+
+You can access path and decoded query strings via Router's state.
+
+```js
+// http://localhost:3000/#/about?fuzzy=wuzzy&was=a&bear=fuzzy&wuzzy=had&no=hair
+
+state.Router.path
+// => /about
+
+state.Router.query
+// => { fuzzy: 'wuzzy', was: 'a', bear: 'fuzzy', wuzzy: 'had', no: 'hair' }
 ```
 
 ### Compatibility
