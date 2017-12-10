@@ -1,7 +1,7 @@
 {
   "name": "@whaaaley/hyperapp-starterkit",
   "version": "0.2.0",
-  "description": "Reusable app logic to kickstart developing",
+  "description": "Reusable app logic to kickstart developing.",
   "author": "Dustin Dowell <dustindowell22@gmail.com>",
   "license": "MIT",
   "main": "index.js",
