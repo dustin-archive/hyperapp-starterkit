@@ -1,7 +1,7 @@
 
 var Cake = {
   add: function (data) {
-    return function (state) {
+    return function () {
       return data
     }
   }

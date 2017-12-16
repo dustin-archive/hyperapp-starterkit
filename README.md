@@ -20,15 +20,20 @@ Store any slice on demand.
 import { app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
 
-app({
+const model = {
   state: {
     Cake: {}
+    // ...
   },
   actions: {
     Cake
-  },
-  // ...
-})
+    // ...
+  }
+}
+
+// ...
+
+app(model, view)
 ```
 
 **Cake Usage**
@@ -57,15 +62,20 @@ Manage state of all overlay elements.
 import { app } from 'hyperapp'
 import { Overlay } from 'hyperapp-starterkit'
 
-const hyperapp = app({
+const model = {
   state: {
     Overlay: {}
+    // ...
   },
   actions: {
     Overlay
-  },
-  // ...
-})
+    // ...
+  }
+}
+
+// ...
+
+const hyperapp = app(model, view)
 
 window.addEventListener('click', e => {
   hyperapp.Overlay.blur(e)
@@ -100,15 +110,20 @@ Minimal hash router.
 import { app } from 'hyperapp'
 import { Router } from 'hyperapp-starterkit'
 
-const hyperapp = app({
+const model = {
   state: {
     Router: {}
+    // ...
   },
   actions: {
     Router
-  },
-  // ...
-})
+    // ...
+  }
+}
+
+// ...
+
+const hyperapp = app(model, view)
 
 hyperapp.Router.init()
 
@@ -129,10 +144,11 @@ const RouterView = path => ({
   // ...
 })[path] || NotFound
 
-app({
-  // ...
-  view: () => state => RouterView(state.Router.path)
-})
+// ...
+
+const view = d => model => RouterView(model.state.Router.path)
+
+app(model, view)
 ```
 
 You can programmatically set path and encode query strings using the `route` action.
@@ -168,6 +184,7 @@ state.Router.query
 ### Compatibility
 | starterkit     | hyperapp       |
 | :------------- | :------------- |
+| 0.4.0          | 0.17.x         |
 | 0.3.0          | 0.16.2         |
-| 0.2.0          | 0.16.0         |
-| 0.1.0          | 0.16.0         |
+| 0.2.0          | 0.16.x         |
+| 0.1.0          | 0.16.x         |
