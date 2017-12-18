@@ -1,9 +1,7 @@
 
 var Cake = {
   add: function (data) {
-    return function () {
-      return data
-    }
+    return data
   }
 }
 

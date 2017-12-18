@@ -11,8 +11,8 @@ var Router = {
     }
   },
   route: function (data) {
-    return function (model) {
-      window.location.hash = (data.path || model.state.path) + encode(data.query || model.state.query)
+    return function (state) {
+      window.location.hash = (data.path || state.path) + encode(data.query || state.query)
     }
   }
 }
