@@ -34,6 +34,9 @@ Store any slice on demand.
 
 #### Cake Installation
 
+Installing the cake action is very easy.
+This example contains everything you need to install it.
+
 ```js
 import { app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
@@ -53,16 +56,13 @@ app(state, actions, view)
 
 #### Cake Usage
 
-Store a slice.
+Using the cake action is so simple it doesn't really need an explanation.
+Store and grab slices like this.
 
 ```js
 actions.Cake.add({ foo: 'bar' })
 // => { state: { Cake: { foo: 'bar' } } }
-```
 
-Grab a slice.
-
-```js
 state.Cake.foo
 // => 'bar'
 ```
@@ -72,6 +72,9 @@ state.Cake.foo
 Manage state of all overlay elements.
 
 #### Overlay Installation
+
+Installing the overlay manager is very easy and follows the usual patterns.
+This example contains everything you need to install it.
 
 ```js
 import { app } from 'hyperapp'
@@ -96,11 +99,13 @@ window.addEventListener('click', e => {
 
 #### Overlay Usage
 
-Add an `_overlay` class to all overlay toggles. Without this class switching between overlays will force the user to blur (off click) between switching.
+Using the overlay manager requires a small amount of work in userland.
 
-[Use `stopPropagation` to do the thing.](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
-
-Use the `toggle` action with a unique id, such as the overlay's name, to toggle it's visibility.
++ Add an `_overlay` class to all overlay toggles.
+  + Without this class, switching between overlays will force the user to blur (off click) between switching.
++ Use `stopPropagation` to do the thing.
+  + [Learn more about `stopPropagation` here.](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
++ Use the `toggle` action with a unique id, such as the overlay's name, to toggle it's visibility.
 
 ```js
 h('div', {
@@ -120,7 +125,7 @@ Minimal hash router.
 
 Installing the router is very easy and follows the usual patterns.
 The `init` action optionally accepts a callback that passes in the current router state object.
-This examples shows everything you need to install the router.
+This example contains everything you need to install the router.
 
 ```js
 import { app } from 'hyperapp'
@@ -206,8 +211,11 @@ state.Router.query
 #### Google Analytics
 
 Adding Google Analytics to this router is easy peasy.
-Add the Google Analytics library in your HTML and create the connection using your Google Analytics ID.
-Create a function using the library that sends the current path to Google Analytics and pass it to the router's `init` function.
+
++ Add the Google Analytics library in your HTML.
++ Create the connection using your Google Analytics ID.
++ Create a function using the library that sends the current path to Google Analytics.
++ Pass your function to the router's `init` function.
 
 ```html
 <script src='https://www.google-analytics.com/analytics.js'></script>
