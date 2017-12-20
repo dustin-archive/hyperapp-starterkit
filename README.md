@@ -4,19 +4,19 @@
 
 ## Legend
 
-+ Install
-+ Usage
-  + Cake
-    + Installation
-    + Usage
++ [Install](#install)
++ [Usage](#usage)
+  + [Cake](#cake)
+    + [Cake Installation](#cake-installation)
+    + [Cake Usage](#cake-usage)
   + Overlay
-    + Installation
-    + Usage
+    + [Overlay Installation](#overlay-installation)
+    + [Overlay Usage](#overlay-usage)
   + [Router](#router)
     + [Router Installation](#router-installation)
     + [Router Usage](#router-usage)
       + [Map Paths to Views](#map-paths-to-views)
-      + [Change Route](#change-router)
+      + [Change Route](#change-route)
       + [Google Analytics](#google-analytics)
 + Compatibility
 
