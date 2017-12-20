@@ -138,7 +138,7 @@ const view = (state, actions) =>
 
 > Minimal hash router.
 
-Routers are great! This one is extra simple and comes with paths and query strings only! Use this router to get a simple SPA up and running. This router doesn't come with anything fancy and you have to create the router view yourself. You can't get more barebones than this.
+Routers are great! This one is extra simple and comes with paths and query strings only! Use this router to get a simple SPA up and running. It doesn't come with anything fancy and you have to create the router view yourself. You can't get more barebones than this.
 
 #### Router Installation
 
