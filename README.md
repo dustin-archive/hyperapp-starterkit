@@ -6,9 +6,9 @@
 
 + [Install](#install)
 + [Usage](#usage)
-  + [Cake](#cake)
-    + [Cake Installation](#cake-installation)
-    + [Cake Usage](#cake-usage)
+  + [Bin](#bin)
+    + [Bin Installation](#bin-installation)
+    + [Bin Usage](#bin-usage)
   + [Overlay](#overlay)
     + [Overlay Installation](#overlay-installation)
     + [Overlay Usage](#overlay-usage)
@@ -28,25 +28,29 @@ npm i @whaaaley/hyperapp-starterkit
 
 ## Usage
 
-### Cake
+### Bin
 
-Store any slice on demand.
+> Store any slice on demand.
 
-#### Cake Installation
+Bin is place to store arbitrary information on demand.
+This is great for rapid development or debugging!
+If it's temporary or if you just don't know where it should go, throw it in `bin`.
 
-Installing the cake action is very easy.
+#### Bin Installation
+
+Installing the bin action is very easy.
 This example contains everything you need to install it.
 
 ```js
 import { app } from 'hyperapp'
-import { Cake } from 'hyperapp-starterkit'
+import { Bin } from 'hyperapp-starterkit'
 
 const state = {
-  Cake: {}
+  Bin: {}
 }
 
 const actions = {
-  Cake
+  Bin
 }
 
 // ...
@@ -54,26 +58,32 @@ const actions = {
 app(state, actions, view)
 ```
 
-#### Cake Usage
+#### Bin Usage
 
-Using the cake action is so simple it doesn't really need an explanation.
+Using the bin action doesn't really need an explanation.
 Store and grab slices like this.
 
 ```js
-actions.Cake.add({ foo: 'bar' })
-// => { state: { Cake: { foo: 'bar' } } }
+actions.Bin.add({ foo: 'bar' })
+// => { state: { Bin: { foo: 'bar' } } }
 
-state.Cake.foo
+state.Bin.foo
 // => 'bar'
 ```
 
 ### Overlay
 
-Manage state of all overlay elements.
+> Manage state of all overlay elements.
+
+Overlay is a manager for things like dropdowns, menus, modals, etc.
+Anything that you click on to open and click away to close should be managed here.
+Managing all overlays in a single place ensures that only one overlay is ever opened at any time.
+It also allows you to programatially open and close any overlay from anywhere.
+This is awesome when creating complex user flows or live tutorials that demonstrate how to use an app by opening overlays for the user.
 
 #### Overlay Installation
 
-Installing the overlay manager is very easy and follows the usual patterns.
+Installing the overlay manager is easy and follows the usual patterns.
 This example contains everything you need to install it.
 
 ```js
@@ -126,11 +136,13 @@ const view = (state, actions) =>
 
 ### Router
 
-Minimal hash router.
+> Minimal hash router.
+
+Routers are great! This one is extra simple and comes with paths and query strings only! Use this router to get a simple SPA up and running. This router doesn't come with anything fancy and you have to create the router view yourself. You can't get more barebones than this.
 
 #### Router Installation
 
-Installing the router is very easy and follows the usual patterns.
+Installing the router is easy and follows the usual patterns.
 The `init` action optionally accepts a callback that passes in the current router state object.
 This example contains everything you need to install the router.
 
@@ -220,9 +232,8 @@ state.Router.query
 Adding Google Analytics to this router is easy peasy.
 
 + Add the Google Analytics library in your HTML.
-+ Create the connection using your Google Analytics ID.
-+ Create a function using the library that sends the current path to Google Analytics.
-+ Pass your function to the router's `init` function.
++ Create the connection using your Google Analytics tracking ID.
++ Create a callback function for router's `init` using the Google Analytics library to send the current path.
 
 ```html
 <script src='https://www.google-analytics.com/analytics.js'></script>
