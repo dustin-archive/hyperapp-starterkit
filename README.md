@@ -105,11 +105,12 @@ Using the overlay manager requires a small amount of work in userland.
   + Without this class, switching between overlays will force the user to blur (off click) between switching.
 + Use `stopPropagation` to do the thing.
   + [Learn more about `stopPropagation` here.](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
-+ Use the `toggle` action with a unique id, such as the overlay's name, to toggle it's visibility.
++ Use the `toggle` action with a unique id, such as the overlay's name, to toggle it.
++ Check the active overlay to control your views.
 
 ```js
 h('div', {
-  class: '_overlay'
+  class: `_overlay ${state.Overlay.overlay === 'menu' && '-visible'}`,
   onclick (e) {
     e.stopPropagation()
     actions.Overlay.toggle('menu')
