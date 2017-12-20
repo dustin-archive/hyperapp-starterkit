@@ -18,7 +18,7 @@
       + [Map Paths to Views](#map-paths-to-views)
       + [Change Route](#change-route)
       + [Google Analytics](#google-analytics)
-+ Compatibility
++ [Compatibility](#compatibility)
 
 ## Install
 
