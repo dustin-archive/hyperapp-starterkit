@@ -38,18 +38,17 @@ Store any slice on demand.
 import { app } from 'hyperapp'
 import { Cake } from 'hyperapp-starterkit'
 
-const model = {
-  state: {
-    Cake: {}
-  },
-  actions: {
-    Cake
-  }
+const state = {
+  Cake: {}
+}
+
+const actions = {
+  Cake
 }
 
 // ...
 
-app(model, view)
+app(state, actions, view)
 ```
 
 #### Cake Usage
@@ -78,18 +77,17 @@ Manage state of all overlay elements.
 import { app } from 'hyperapp'
 import { Overlay } from 'hyperapp-starterkit'
 
-const model = {
-  state: {
-    Overlay: {}
-  },
-  actions: {
-    Overlay
-  }
+const state = {
+  Overlay: {}
+}
+
+const actions = {
+  Overlay
 }
 
 // ...
 
-const hyperapp = app(model, view)
+const hyperapp = app(state, actions, view)
 
 window.addEventListener('click', e => {
   hyperapp.Overlay.blur(e)
