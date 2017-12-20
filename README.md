@@ -1,6 +1,22 @@
-# hyperapp-starterkit
+# @whaaaley/hyperapp-starterkit
 
 > Reusable app logic to kickstart developing
+
+## Legend
+
++ Install
++ Usage
+  + Cake
+    + Installation
+    + Usage
+  + Overlay
+    + Installation
+    + Usage
+  + Router
+    + Installation
+    + Usage
+    + Google Analytics
++ Compatibility
 
 ## Install
 
@@ -14,7 +30,7 @@ npm i @whaaaley/hyperapp-starterkit
 
 Store any slice on demand.
 
-**Cake Installation**
+#### Cake Installation
 
 ```js
 import { app } from 'hyperapp'
@@ -36,7 +52,7 @@ const model = {
 app(model, view)
 ```
 
-**Cake Usage**
+#### Cake Usage
 
 Store a slice.
 
@@ -56,7 +72,7 @@ state.Cake.foo
 
 Manage state of all overlay elements.
 
-**Overlay Installation**
+#### Overlay Installation
 
 ```js
 import { app } from 'hyperapp'
@@ -82,7 +98,7 @@ window.addEventListener('click', e => {
 })
 ```
 
-**Overlay Usage**
+#### Overlay Usage
 
 Add an `_overlay` class to all overlay toggles. Without this class switching between overlays will force the user to blur (off click) between switching.
 
@@ -104,7 +120,7 @@ h('div', {
 
 Minimal hash router.
 
-**Router Installation**
+#### Router Installation
 
 ```js
 import { app } from 'hyperapp'
@@ -132,7 +148,7 @@ window.addEventListener('hashchange', e => {
 })
 ```
 
-**Router Usage**
+#### Router Usage
 
 Use a router view function and the current path to change the view.
 
@@ -181,7 +197,11 @@ state.Router.query
 // => { fuzzy: 'wuzzy', was: 'a', bear: 'fuzzy', wuzzy: 'had', no: 'hair' }
 ```
 
-### Compatibility
+#### Google Analytics
+
+
+
+## Compatibility
 | starterkit     | hyperapp       |
 | :------------- | :------------- |
 | 0.3.0          | 0.18.x         |
