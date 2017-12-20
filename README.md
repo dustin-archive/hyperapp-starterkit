@@ -106,7 +106,7 @@ Using the overlay manager requires a small amount of work in userland.
 + Use `stopPropagation` to do the thing.
   + [Learn more about `stopPropagation` here.](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
 + Use the `toggle` action with a unique id, such as the overlay's name, to toggle it.
-+ Check the active overlay to control your views.
++ Check the overlay state to control your views.
 
 ```js
 const menuClasses = overlay =>
