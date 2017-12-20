@@ -109,13 +109,19 @@ Using the overlay manager requires a small amount of work in userland.
 + Check the active overlay to control your views.
 
 ```js
-h('div', {
-  class: `_overlay ${state.Overlay.overlay === 'menu' && '-visible'}`,
-  onclick (e) {
-    e.stopPropagation()
-    actions.Overlay.toggle('menu')
-  }
-}, 'Menu')
+const menuClasses = overlay =>
+  overlay === 'menu'
+    ? '_overlay -visible'
+    : '_overlay'
+
+const view = (state, actions) =>
+  h('div', {
+    class: menuClasses(state.Overlay.overlay),
+    onclick (e) {
+      e.stopPropagation()
+      actions.Overlay.toggle('menu')
+    }
+  }, 'Menu')
 ```
 
 ### Router
