@@ -192,7 +192,7 @@ app(state, actions, view)
 ##### Change Route
 
 Path and query state can be updated manually in the address bar or with an anchor tag and `href`.
-You can also programmatically set the path and encode query state using the `route` action.
+You can also programmatically set the path and encode query strings using the `route` action.
 State will always reflect changes assuming you've installed the router corrrectly.
 
 ```js
