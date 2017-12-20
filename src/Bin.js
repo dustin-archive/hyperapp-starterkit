@@ -1,8 +1,8 @@
 
-var Cake = {
+var Bin = {
   add: function (data) {
     return data
   }
 }
 
-export { Cake }
+export { Bin }
