@@ -30,7 +30,7 @@ npm i @whaaaley/hyperapp-starterkit
 
 ### Stash
 
-> Store a state slice on demand.
+> Store a state on demand.
 
 Stash is place to store arbitrary information.
 This is great for rapid development or debugging!
