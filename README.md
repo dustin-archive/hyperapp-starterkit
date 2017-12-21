@@ -78,7 +78,7 @@ state.Bin.foo
 Overlay is a manager for things like dropdowns, menus, modals, etc.
 Anything that you click on to open and click away to close should be managed here.
 Managing all overlays in a single place ensures that only one overlay is ever opened at any time.
-It also allows you to programatially open and close any overlay from anywhere.
+It also allows you to programmatically open and close any overlay from anywhere.
 This is awesome when creating complex user flows or live tutorials that demonstrate how to use an app by opening overlays for the user.
 
 #### Overlay Installation
