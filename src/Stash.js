@@ -1,8 +1,8 @@
 
-var Bin = {
+var Stash = {
   add: function (data) {
     return data
   }
 }
 
-export { Bin }
+export { Stash }
