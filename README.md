@@ -6,9 +6,9 @@
 
 + [Install](#install)
 + [Usage](#usage)
-  + [Bin](#bin)
-    + [Bin Installation](#bin-installation)
-    + [Bin Usage](#bin-usage)
+  + [Stash](#stash)
+    + [Stash Installation](#stash-installation)
+    + [Stash Usage](#stash-usage)
   + [Overlay](#overlay)
     + [Overlay Installation](#overlay-installation)
     + [Overlay Usage](#overlay-usage)
@@ -28,29 +28,29 @@ npm i @whaaaley/hyperapp-starterkit
 
 ## Usage
 
-### Bin
+### Stash
 
-> Store any slice on demand.
+> Store a state slice on demand.
 
-Bin is place to store arbitrary information on demand.
+Stash is place to store arbitrary information.
 This is great for rapid development or debugging!
-If it's temporary or if you just don't know where it should go, throw it in `bin`.
+If it's temporary or if you just don't know where it should go, add it to `Stash`.
 
-#### Bin Installation
+#### Stash Installation
 
-Installing the bin action is very easy.
+Installing the stash action is very easy.
 This example contains everything you need to install it.
 
 ```js
 import { app } from 'hyperapp'
-import { Bin } from 'hyperapp-starterkit'
+import { Stash } from 'hyperapp-starterkit'
 
 const state = {
-  Bin: {}
+  Stash: {}
 }
 
 const actions = {
-  Bin
+  Stash
 }
 
 // ...
@@ -58,24 +58,24 @@ const actions = {
 app(state, actions, view)
 ```
 
-#### Bin Usage
+#### Stash Usage
 
-Using the bin action doesn't really need an explanation.
-Store and grab slices like this.
+Everything you add is saved to the `Stash` state object.
+Add and retrieve state like this.
 
 ```js
-actions.Bin.add({ foo: 'bar' })
-// => { state: { Bin: { foo: 'bar' } } }
+actions.Stash.add({ foo: 'bar' })
+// => { state: { Stash: { foo: 'bar' } } }
 
-state.Bin.foo
+state.Stash.foo
 // => 'bar'
 ```
 
 ### Overlay
 
-> Manage state of all overlay elements.
+> Manage state of overlay elements.
 
-Overlay is a manager for things like dropdowns, menus, modals, etc.
+Overlay is a manager for things like drop-downs, menus, modals, etc.
 Anything that you click on to open and click away to close should be managed here.
 Managing all overlays in a single place ensures that only one overlay is ever opened at any time.
 It also allows you to programmatically open and close any overlay from anywhere.
@@ -100,10 +100,10 @@ const actions = {
 
 // ...
 
-const hyperapp = app(state, actions, view)
+const main = app(state, actions, view)
 
 window.addEventListener('click', e => {
-  hyperapp.Overlay.blur(e)
+  main.Overlay.blur(e)
 })
 ```
 
@@ -160,12 +160,12 @@ const actions = {
 
 // ...
 
-const hyperapp = app(state, actions, view)
+const main = app(state, actions, view)
 
-hyperapp.Router.init()
+main.Router.init()
 
 window.addEventListener('hashchange', e => {
-  hyperapp.Router.init()
+  main.Router.init()
 })
 ```
 
@@ -248,10 +248,10 @@ const googleAnalytics = data => {
   window.ga('send', 'pageview', data.path)
 }
 
-hyperapp.Router.init(googleAnalytics)
+main.Router.init(googleAnalytics)
 
 window.addEventListener('hashchange', e => {
-  hyperapp.Router.init(googleAnalytics)
+  main.Router.init(googleAnalytics)
 })
 ```
 
